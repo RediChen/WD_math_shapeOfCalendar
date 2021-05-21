@@ -5,6 +5,6 @@ btns.forEach(elem => {
         this.classList.toggle("r-btn-active") ;
     }
 });
-// btns.onclick = function () {
-//     this.classList.toggle(".r-btn-active") ;
-// }
+function flipCard() {
+    document.querySelector(".frame").classList.toggle("frame-active") ;
+}

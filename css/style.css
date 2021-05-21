@@ -27,15 +27,57 @@ html {
 }
 
 h1 {
+  margin: 1rem;
   font-family: "Noto Serif TC", serif;
   font-weight: 700;
-  font-size: 4rem;
-  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+hr {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.frame {
+  width: 30rem;
+  height: 30rem;
+  margin: 3rem auto 0;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.frame .card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.frame-active .card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.frame .card-front, .frame .card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.frame .card-back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .calendar {
-  margin: 0 auto;
-  background-color: rgba(238, 238, 238, 0.35);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ddf9f7), to(#c3f9b6));
+  background-image: linear-gradient(#ddf9f7, #c3f9b6);
   padding: 2.25rem;
   display: -ms-grid;
   display: grid;
