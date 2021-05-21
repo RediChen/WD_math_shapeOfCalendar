@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;700;900&display=swap")
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600&display=swap')
+$desktop: 1025px
+$tablet: 1024px
+$mobile: 767px
+@mixin font-zh($sz, $wt)
+    //wt is in 300, 500, 700, 900
+    font-family: "Noto Serif TC", serif
+    font-weight: $wt
+    font-size: $sz
+@mixin font-en($sz, $wt)
+    //wt is in 400, 600
+    font-family: 'Newsreader', serif;
+    font-weight: $wt
+    font-size: $sz
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+html
+    @media screen and (min-width: $desktop)
+        font-size: 18px
+    @media screen and (min-width: $tablet)
+        font-size: 16px
+.calendar
+    background-color: lightgreen
+    .row
+        width: 12rem
+        height: 1rem
+        border: 1px solid #000
+        display: flex
+        flex-direction: column
