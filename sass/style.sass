@@ -3,6 +3,8 @@
 $desktop: 1025px
 $tablet: 1024px
 $mobile: 767px
+$skyblue: rgb(212, 255, 254)
+$lakegreen: #acff97
 @mixin font-zh($sz, $wt)
     //wt is in 300, 500, 700, 900
     font-family: "Noto Serif TC", serif
@@ -21,7 +23,9 @@ html
     width: 100%
     height: 100%
     overflow: hidden
-    background-color: #666
+
+    background: linear-gradient(0deg, $lakegreen 0%, $skyblue 80%)
+    // background-color: #666
     @media screen and (min-width: $desktop)
         font-size: 18px
     @media screen and (min-width: $tablet)
@@ -29,37 +33,47 @@ html
 h1
     @include font-zh(4rem, 700)
     color: white
-$gap: 0.75rem
-$unit-l: 3rem
-$wood-dark: #b0520a
+    $wood-dark: #b0520a
 $wood-light: #cd6c1f
+$semi-trsp: rgba(#eee, 0.35)
 .calendar
+    $gap: 0.75rem
+    $unit-l: 3rem
+    $padding: 3*$gap
+    $leng: 7*$unit-l + 6*$gap + 2*$padding
     margin: 0 auto
-    background-color: #777
-    box-shadow: 0 0 1rem 1rem #777
-    padding: $gap
+    // background-color: #777
+    // box-shadow: 0 0 1rem 1rem #777
+    background-color: $semi-trsp
+    padding: $padding
     display: grid
     grid-template-columns: repeat(7, 1fr)
     gap: $gap
-    width: 7*$unit-l + 8*$gap
+    width: $leng
+    height: $leng
+    border-radius: $gap
     > div
         width: $unit-l
         height: $unit-l
         $thick: 3px
         box-shadow: $thick $thick $thick rgba(#000, 0.5)
         background-color: burlywood
-        &:active
+        &:not(.r-h):active
             transform: translate($thick, $thick)
             filter: brightness(0.8)
             box-shadow: none
     .r-h
-        background-color: $wood-light
-        @include font-zh(($unit-l - 1rem), 500)
+        $thick: 3px
+        background-color: $lakegreen
+        box-shadow: $thick $thick $thick rgba(#000, 0.2),
+        0 0 $thick rgba(#000, 0.2) inset
+        @include font-zh(($unit-l - 1rem), 900)
         text-align: center
+        cursor: context-menu
     .r
         filter: invert(0.1)
     .r-btn
-        filter: invert(0.5)
+        background-color: $semi-trsp
         &-active
-            background-color: #fff
+            background-color: burlywood
             filter: sepia(0.8)
