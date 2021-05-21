@@ -3,8 +3,9 @@
 $desktop: 1025px
 $tablet: 1024px
 $mobile: 767px
-$skyblue: rgb(212, 255, 254)
+$skyblue: #d4fffe
 $lakegreen: #acff97
+$semi-trsp: rgba(#eee, 0.35)
 @mixin font-zh($sz, $wt)
     //wt is in 300, 500, 700, 900
     font-family: "Noto Serif TC", serif
@@ -33,9 +34,10 @@ html
 h1
     @include font-zh(4rem, 700)
     color: white
-    $wood-dark: #b0520a
-$wood-light: #cd6c1f
-$semi-trsp: rgba(#eee, 0.35)
+//* 翻牌效果的設定
+
+// 翻牌效果的設定 END
+//* 月曆的樣式
 .calendar
     $gap: 0.75rem
     $unit-l: 3rem
@@ -77,3 +79,16 @@ $semi-trsp: rgba(#eee, 0.35)
         &-active
             background-color: burlywood
             filter: sepia(0.8)
+// 月曆的樣式 END
+#btn
+    width: 50px
+    height: 50px
+    margin: 30px auto
+    border-radius: 40%
+    background-color: burlyWood
+    $btn-h: 10px
+    box-shadow: 0 $btn-h #999
+    transition: 0.3s ease-out
+    &:active
+        transform: translateY($btn-h)
+        box-shadow: none
